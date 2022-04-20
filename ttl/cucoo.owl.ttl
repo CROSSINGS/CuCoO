@@ -1,4 +1,5 @@
 @prefix : <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
+@prefix crm: <http://erlangen-crm.org/current/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -19,33 +20,6 @@
 terms:license rdf:type owl:AnnotationProperty .
 
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
-:ShowsPhysicalAppearance rdf:type rdf:Property ;
-                         rdfs:range :PhysicalAppearance ;
-                         rdfs:domain <http://erlangen-crm.org/current/E21_Person> .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Wears
-:Wears rdf:type rdf:Property ;
-       rdfs:subPropertyOf :ShowsPhysicalAppearance ;
-       rdfs:range :Clothes ;
-       rdfs:domain <http://erlangen-crm.org/current/E21_Person> .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAccessories
-:hasAccessories rdf:type rdf:Property ;
-                rdfs:subPropertyOf :ShowsPhysicalAppearance ;
-                rdfs:range :Accesories ;
-                rdfs:domain <http://erlangen-crm.org/current/E21_Person> .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasHairStyle
-:hasHairStyle rdf:type rdf:Property ;
-              rdfs:subPropertyOf :ShowsPhysicalAppearance ;
-              rdfs:range :Hairstyle ;
-              rdfs:domain <http://erlangen-crm.org/current/E21_Person> .
-
-
 #################################################################
 #    Object Properties
 #################################################################
@@ -62,6 +36,26 @@ terms:license rdf:type owl:AnnotationProperty .
             rdfs:subPropertyOf :hasAdministrativeOrganisation ;
             rdfs:domain :Settlement ;
             rdfs:comment "It relates a settlement with the province it belonged to (e.g. Gades belonged to Provincia Ulterior and later Provincia Baetica)." .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
+:ShowsPhysicalAppearance rdf:type owl:ObjectProperty ;
+                         rdfs:domain crm:E21_Person ;
+                         rdfs:range :PhysicalAppearance .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Wears
+:Wears rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :ShowsPhysicalAppearance ;
+       rdfs:domain crm:E21_Person ;
+       rdfs:range :Clothes .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAccessories
+:hasAccessories rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :ShowsPhysicalAppearance ;
+                rdfs:domain crm:E21_Person ;
+                rdfs:range :Accesories .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAdministrativeOrganisation
@@ -128,15 +122,22 @@ terms:license rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasEthnicIdentity
 :hasEthnicIdentity rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :hasCulturalIdentity ;
-                   rdfs:domain <http://erlangen-crm.org/current/E21_Person> ;
+                   rdfs:domain crm:E21_Person ;
                    rdfs:range :EthnicIdentity .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasGenderIdentity
-:hasGenderIdentity rdf:type rdf:Property ;
+:hasGenderIdentity rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :hasCulturalIdentity ;
-                   rdfs:domain <http://erlangen-crm.org/current/E21_Person> ;
+                   rdfs:domain crm:E21_Person ;
                    rdfs:range :GenderIdentity .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasHairStyle
+:hasHairStyle rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :ShowsPhysicalAppearance ;
+              rdfs:domain crm:E21_Person ;
+              rdfs:range :Hairstyle .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasIconography
@@ -199,8 +200,8 @@ terms:license rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://erlangen-crm.org/current/E21_Person
-<http://erlangen-crm.org/current/E21_Person> rdf:type owl:Class ;
-                                             rdfs:subClassOf :CulturalAgent .
+crm:E21_Person rdf:type owl:Class ;
+               rdfs:subClassOf :CulturalAgent .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Accesories
@@ -506,9 +507,6 @@ terms:license rdf:type owl:AnnotationProperty .
 #################################################################
 #    Annotations
 #################################################################
-
-:Carving rdfs:comment "" .
-
 
 :Text rdfs:comment "Utterance or coherent set of written statements." .
 
