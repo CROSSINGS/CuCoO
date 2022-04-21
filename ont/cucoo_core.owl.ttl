@@ -1,19 +1,40 @@
 @prefix : <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix crm: <http://erlangen-crm.org/current/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix terms: <http://purl.org/dc/terms/> .
-@base <http://crossinjgs.github.io/CuCoO/> .
+@base <http://crossings.github.io/CuCoO/core> .
 
-<http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> rdf:type owl:Ontology ;
-                                                         terms:license <https://creativecommons.org/licenses/by-sa/2.0/> ;
-                                                         rdfs:comment "This ontology defines main concepts related to cross-culutral contact in antiquity."@en .
+<http://crossings.github.io/CuCoO/core> rdf:type owl:Ontology ;
+                                         dc:creator <http://orcid.org/0000-0001-8029-7286> ,
+                                                    <http://orcid.org/0000-0002-9272-908X> ,
+                                                    <http://orcid.org/0000-0003-2014-0855> ;
+                                         dc:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
+                                         dc:title "CuCoO: The Cultural Contact Ontology - refactored core"@en ;
+                                         rdfs:comment "This ontology defines the main concepts related to cross-cultural contact in history."@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+dc:creator rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/license
+dc:license rdf:type owl:AnnotationProperty .
 
+
+###  http://purl.org/dc/terms/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
 :ShowsPhysicalAppearance rdf:type owl:ObjectProperty ;
@@ -21,17 +42,11 @@
                          rdfs:range :PhysicalAppearance .
 
 
-
-
-
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAspect
 :hasAspect rdf:type owl:ObjectProperty ;
            rdfs:domain :CulturalAgent ;
            rdfs:range :CulturalContactAspects ;
            rdfs:comment "Relates a CulutralContactAgent (e.g. coin) with the CulutralContactAspect featured (e.g. Linguistic)." .
-
-
-
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasContext
@@ -66,9 +81,6 @@
                   rdfs:range :CulturalContactTrait .
 
 
-
-
-
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/isAssociatedWith
 :isAssociatedWith rdf:type owl:ObjectProperty ;
                   rdfs:domain :CulturalAgent ,
@@ -84,9 +96,6 @@
 ###  http://erlangen-crm.org/current/E21_Person
 crm:E21_Person rdf:type owl:Class ;
                rdfs:subClassOf :CulturalAgent .
-
-
-
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Conquest
@@ -134,9 +143,6 @@ crm:E21_Person rdf:type owl:Class ;
                   rdfs:comment "Self-conscious association of a group or a person with a culturally constructed group identitiy that intersect with others in the identification of, and interaction, between groups.Refers to the elements that constitue a person cultural identity." .
 
 
-
-
-
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Iconographic
 :Iconographic rdf:type owl:Class ;
               rdfs:subClassOf :CulturalContactAspects ;
@@ -161,19 +167,14 @@ crm:E21_Person rdf:type owl:Class ;
             rdfs:comment "Linguistic influence amongst the different cultural groups can be demonstrated in the evidence (e.g. bilingual inscriptions or use of foreign alphabets to record indigenous onomastica)." .
 
 
-
-
-
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PermeableCulturalContact
 :PermeableCulturalContact rdf:type owl:Class ;
                           rdfs:subClassOf :CulturalContact ;
                           rdfs:comment "Situation of cultural contact (e.g. Roman conquest of the Iberian Peninsula) where there is evidence for cultural influence (e.g. appearance of Roman influences in the material culture)." .
 
 
-
-
-
-
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PhysicalAppearance
+:PhysicalAppearance rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Style
@@ -183,23 +184,14 @@ crm:E21_Person rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Text
 :Text rdf:type owl:Class ;
-      rdfs:subClassOf :CulturalContactTrait .
+      rdfs:subClassOf :CulturalContactTrait ;
+      rdfs:comment "Utterance or coherent set of written statements." .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Trade
 :Trade rdf:type owl:Class ;
        rdfs:subClassOf :CulturalContactContext ;
        rdfs:comment "The cultural contact situation happens during a process of trade (e.g. Phoenician and Greek settlements in the peninsula)." .
-
-
-
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-:Text rdfs:comment "Utterance or coherent set of written statements." .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

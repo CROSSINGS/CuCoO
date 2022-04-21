@@ -1,0 +1,16 @@
+CROSSINGS/CuCoO (c) by Alessandro Adamou and Davide Picca
+
+CROSSINGS/CuCoO is a derivative of CuCoO 
+<http://github.com/paulagranados/CuCoO>.
+
+RDF terms from the original ontology were relocated from other modules and 
+further statements were added, however their URIs were not refactored.
+Non-pertinent RDF terms were removed.
+
+CuCoO (c) by Paula Granados-Garcia
+
+CROSSINGS/CuCoO is licensed under a
+Creative Commons Attribution-ShareAlike 4.0 International License.
+
+You should have received a copy of the license along with this
+work. If not, see <http://creativecommons.org/licenses/by-sa/4.0/>.
