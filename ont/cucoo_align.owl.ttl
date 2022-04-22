@@ -12,7 +12,7 @@
 
 <http://crossings.github.io/CuCoO/align> rdf:type owl:Ontology ;
                                           dc:creator <http://orcid.org/0000-0002-9272-908X> ;
-                                          dc:description "Alignments of the CuCoO framework with other ontologies."@en ;
+                                          rdfs:comment "Alignments of the CuCoO framework with other ontologies."@en ;
                                           dc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
 
 #################################################################
@@ -24,7 +24,7 @@ dc:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
-dc:description rdf:type owl:AnnotationProperty .
+rdfs:comment rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
@@ -46,7 +46,7 @@ crm:E92_Spacetime_Volume rdf:type owl:Class .
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContact
 cucoo:CulturalContact rdf:type owl:Class ;
                       rdfs:subClassOf crm:E92_Spacetime_Volume ;
-                      dc:description "Because it is not set in a fixed temporal region, it subsumes the general phenomenological framework of CIDOC-CRM."@en .
+                      rdfs:comment "Because it is not set in a fixed temporal region, it subsumes the general phenomenological framework of CIDOC-CRM."@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContactContext

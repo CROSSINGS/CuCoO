@@ -6,12 +6,11 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix terms: <http://purl.org/dc/terms/> .
 @base <http://crossings.github.io/CuCoO/traits> .
 
 <http://crossings.github.io/CuCoO/traits> rdf:type owl:Ontology ;
-                                           terms:description "Traits of cultural contact that aid the instantiation of the CuCoO core module."@en ;
-                                           terms:license <http://creativecommons.org/licenses/by-sa/4.0/> .
+                                           rdfs:comment "Traits of cultural contact that aid the instantiation of the CuCoO core module."@en ;
+                                           dc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
 
 #################################################################
 #    Object Properties

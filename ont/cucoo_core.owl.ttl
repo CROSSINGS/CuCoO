@@ -13,7 +13,7 @@
                                          dc:creator <http://orcid.org/0000-0001-8029-7286> ,
                                                     <http://orcid.org/0000-0002-9272-908X> ,
                                                     <http://orcid.org/0000-0003-2014-0855> ;
-                                         dc:description "This ontology defines the main concepts related to cross-cultural contact in history."@en ;
+                                         rdfs:comment "This ontology defines the main concepts related to cross-cultural contact in history."@en ;
                                          dc:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
                                          dc:title "CuCoO: The Cultural Contact Ontology - Core"@en ;
                                          rdfs:comment "Built upon on CuCoO - the Cultural Contact Ontology, by Paula Granados Garcia, CC BY-SA 2.0."@en .
@@ -27,7 +27,7 @@ dc:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
-dc:description rdf:type owl:AnnotationProperty .
+rdfs:comment rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
@@ -108,7 +108,7 @@ cucoo:CulturalAgent rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContact
 cucoo:CulturalContact rdf:type owl:Class ;
-                      dc:description "Refers to the phenomenon of interaction amongst at least two communities with different cultural and ethnical backgrounds."@en ;
+                      rdfs:comment "Refers to the phenomenon of interaction amongst at least two communities with different cultural and ethnical backgrounds."@en ;
                       rdfs:label "cultural contact"@en .
 
 
@@ -141,7 +141,7 @@ cucoo:CulturalContactTrait rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalIdentity
 cucoo:CulturalIdentity rdf:type owl:Class ;
-                       dc:description "Self-conscious association of a group or a person with a culturally constructed group identitiy that intersect with others in the identification of, and interaction, between groups. Refers to the elements that constitute a person's cultural identity."@en ;
+                       rdfs:comment "Self-conscious association of a group or a person with a culturally constructed group identitiy that intersect with others in the identification of, and interaction, between groups. Refers to the elements that constitute a person's cultural identity."@en ;
                        rdfs:comment "Examples: being a Roman, a member of the Hakka people, a female or a hippie"@en ;
                        rdfs:label "cultural identity"@en .
 
@@ -157,7 +157,7 @@ cucoo:Iconographic rdf:type owl:Class ;
 cucoo:ImpermeableCulturalContact rdf:type owl:Class ;
                                  rdfs:subClassOf cucoo:CulturalContact ;
                                  owl:disjointWith cucoo:PermeableCulturalContact ;
-                                 dc:description "Situation of cultural contact where there is no evidence for cultural influence."@en ;
+                                 rdfs:comment "Situation of cultural contact where there is no evidence for cultural influence."@en ;
                                  rdfs:comment "Example: the foundation of a colonia by the Romans did not cause the appearance of indigenous influences in material culture."@en ;
                                  rdfs:label "impermeable cultural contact"@en .
 
@@ -172,7 +172,7 @@ cucoo:Linguistic rdf:type owl:Class ;
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PermeableCulturalContact
 cucoo:PermeableCulturalContact rdf:type owl:Class ;
                                rdfs:subClassOf cucoo:CulturalContact ;
-                               dc:description "Situation of cultural contact where there is evidence of cultural influence."@en ;
+                               rdfs:comment "Situation of cultural contact where there is evidence of cultural influence."@en ;
                                rdfs:comment "Example: the Roman conquest of the Iberian Peninsula caused appearance of Roman influences in the local material culture." ;
                                rdfs:label "permeable cultural contact"@en .
 
