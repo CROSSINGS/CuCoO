@@ -1,52 +1,63 @@
 @prefix : <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
-@prefix crm: <http://erlangen-crm.org/current/> .
 @prefix dc: <http://purl.org/dc/terms/> .
+@prefix crm: <http://erlangen-crm.org/current/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix terms: <http://purl.org/dc/terms/> .
+@base <http://crossings.github.io/CuCoO/traits> .
 
-<http://crossings.github.io/CuCoO/traits> a owl:Ontology ;
-owl:imports <http://crossings.github.io/CuCoO/core> ;
-	dc:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
-dc:description "Traits of cultural contact that aid the instantiation of the CuCoO core module."@en .
+<http://crossings.github.io/CuCoO/traits> rdf:type owl:Ontology ;
+                                           owl:imports <http://crossings.github.io/CuCoO/core> ;
+                                           terms:description "Traits of cultural contact that aid the instantiation of the CuCoO core module."@en ;
+                                           terms:license <http://creativecommons.org/licenses/by-sa/4.0/> .
 
-###  http://erlangen-crm.org/current/E21_Person
-crm:E21_Person rdf:type owl:Class ;
-               rdfs:subClassOf :CulturalAgent .
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PhysicalAppearance
-:PhysicalAppearance rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Style
-:Style rdf:type owl:Class ;
-       rdfs:subClassOf :CulturalContactTrait .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Text
-:Text rdf:type owl:Class ;
-      rdfs:subClassOf :CulturalContactTrait ;
-      rdfs:comment "Utterance or coherent set of written statements." .
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Iconography
-:Iconography rdf:type owl:Class ;
-                  rdfs:subClassOf :CulturalContactTrait .
 #################################################################
 #    Object Properties
 #################################################################
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
-:ShowsPhysicalAppearance rdf:type owl:ObjectProperty ;
-                         rdfs:domain crm:E21_Person ;
-                         rdfs:range :PhysicalAppearance .
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/InConventus
 :InConventus rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :hasAdministrativeOrganisation ;
              rdfs:domain :Settlement ;
              rdfs:comment "It relates the settlement with the conventus it belonged to (e.g. Astigi belonged to Conventus Astigitanus)." .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/InProvince
+:InProvince rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasAdministrativeOrganisation ;
+            rdfs:domain :Settlement ;
+            rdfs:comment "It relates a settlement with the province it belonged to (e.g. Gades belonged to Provincia Ulterior and later Provincia Baetica)." .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
+:ShowsPhysicalAppearance rdf:type owl:ObjectProperty ;
+                         rdfs:domain crm:E21_Person ;
+                         rdfs:range :PhysicalAppearance .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Wears
+:Wears rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :ShowsPhysicalAppearance ;
+       rdfs:domain crm:E21_Person ;
+       rdfs:range :Clothes .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAccessories
+:hasAccessories rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :ShowsPhysicalAppearance ;
+                rdfs:domain crm:E21_Person ;
+                rdfs:range :Accesories .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAdministrativeOrganisation
+:hasAdministrativeOrganisation rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Settlement ;
+                               rdfs:range :SettlementAdministrativeOrganisation ;
+                               rdfs:comment "Relates a settlement with its Administrative Organisation." .
+
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasCarving
 :hasCarving rdf:type owl:ObjectProperty ;
@@ -62,24 +73,6 @@ crm:E21_Person rdf:type owl:Class ;
             rdfs:domain :Text ;
             rdfs:comment "Relates any type of text with its content." .
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/InProvince
-:InProvince rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf :hasAdministrativeOrganisation ;
-            rdfs:domain :Settlement ;
-            rdfs:comment "It relates a settlement with the province it belonged to (e.g. Gades belonged to Provincia Ulterior and later Provincia Baetica)." .
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Wears
-:Wears rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf :ShowsPhysicalAppearance ;
-       rdfs:domain crm:E21_Person ;
-       rdfs:range :Clothes .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAccessories
-:hasAccessories rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :ShowsPhysicalAppearance ;
-                rdfs:domain crm:E21_Person ;
-                rdfs:range :Accesories .
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasEthnicIdentity
 :hasEthnicIdentity rdf:type owl:ObjectProperty ;
@@ -148,16 +141,42 @@ crm:E21_Person rdf:type owl:Class ;
          rdfs:range :Text ;
          rdfs:comment "Relates an epigraphic inscription or a coin with the text it displays." .
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAdministrativeOrganisation
-:hasAdministrativeOrganisation rdf:type owl:ObjectProperty ;
-                               rdfs:domain :Settlement ;
-                               rdfs:range :SettlementAdministrativeOrganisation ;
-                               rdfs:comment "Relates a settlement with its Administrative Organisation." .
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Object
-:Object rdf:type owl:Class ;
-        rdfs:subClassOf :CulturalAgent .
-        
+#################################################################
+#    Classes
+#################################################################
+
+###  http://erlangen-crm.org/current/E21_Person
+crm:E21_Person rdf:type owl:Class ;
+               rdfs:subClassOf :CulturalAgent .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Accesories
+:Accesories rdf:type owl:Class ;
+            rdfs:subClassOf :PhysicalAppearance .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/AdministrativeDenomination
+:AdministrativeDenomination rdf:type owl:Class ;
+                            rdfs:subClassOf :CulturalContactTrait ;
+                            rdfs:label "Administrative Denomination"@en .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Carving
+:Carving rdf:type owl:Class ;
+         rdfs:subClassOf :CulturalContactTrait .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Clothes
+:Clothes rdf:type owl:Class ;
+         rdfs:subClassOf :PhysicalAppearance .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Coin
+:Coin rdf:type owl:Class ;
+      rdfs:subClassOf :Object .
+
+
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/EpigraphicInscription
 :EpigraphicInscription rdf:type owl:Class ;
                        rdfs:subClassOf :Object .
@@ -178,16 +197,11 @@ crm:E21_Person rdf:type owl:Class ;
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Hairstyle
 :Hairstyle rdf:type owl:Class ;
            rdfs:subClassOf :PhysicalAppearance .
-           
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Accesories
-:Accesories rdf:type owl:Class ;
-            rdfs:subClassOf :PhysicalAppearance .
 
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/AdministrativeDenomination
-:AdministrativeDenomination rdf:type owl:Class ;
-                            rdfs:subClassOf :CulturalContactTrait ;
-                            rdfs:label "Administrative Denomination"@en .
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Iconography
+:Iconography rdf:type owl:Class ;
+             rdfs:subClassOf :CulturalContactTrait .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Material
@@ -195,27 +209,19 @@ crm:E21_Person rdf:type owl:Class ;
           rdfs:subClassOf :CulturalContactTrait .
 
 
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Object
+:Object rdf:type owl:Class ;
+        rdfs:subClassOf :CulturalAgent ;
+        rdfs:label "object"@en .
+
+
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PhysicalAppearance
 :PhysicalAppearance rdf:type owl:Class ;
-                    rdfs:subClassOf :CulturalContactTrait  ;
+                    rdfs:subClassOf :CulturalContactTrait ;
                     rdfs:comment "Refers to all things that constitute one person’s appearance." .
 
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Carving
-:Carving rdf:type owl:Class ;
-         rdfs:subClassOf :CulturalContactTrait .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Clothes
-:Clothes rdf:type owl:Class ;
-         rdfs:subClassOf :PhysicalAppearance .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Coin
-:Coin rdf:type owl:Class ;
-      rdfs:subClassOf :Object .
-      
-      ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Sculpture
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Sculpture
 :Sculpture rdf:type owl:Class ;
            rdfs:subClassOf :Object .
 
@@ -234,7 +240,19 @@ crm:E21_Person rdf:type owl:Class ;
 :SettlementLegalStatus rdf:type owl:Class ;
                        rdfs:subClassOf :CulturalContactTrait ;
                        rdfs:comment "City legal status according to Roman law." .
-                       
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Style
+:Style rdf:type owl:Class ;
+       rdfs:subClassOf :CulturalContactTrait .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Text
+:Text rdf:type owl:Class ;
+      rdfs:subClassOf :CulturalContactTrait ;
+      rdfs:comment "Utterance or coherent set of written statements." .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -337,9 +355,13 @@ crm:E21_Person rdf:type owl:Class ;
 :Schematic_folds rdf:type owl:NamedIndividual ,
                           :Carving .
 
+
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Social_Behaviour
 :Social_Behaviour rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Urbanism
 :Urbanism rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

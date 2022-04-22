@@ -115,7 +115,7 @@ cucoo:CulturalContact rdf:type owl:Class ;
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContactAspects
 cucoo:CulturalContactAspects rdf:type owl:Class ;
                              rdfs:subClassOf cucoo:CulturalContactFeature ;
-                             rdfs:comment "Character of the cultural contact situation (e.g. Economic, the evidence can proove the establishment of some economic relationship amongst the different comunities involved in the situation of cultural contact)." ;
+                             rdfs:comment "Character of the cultural contact situation (e.g. Economic, the evidence can prove the establishment of some economic relationship amongst the different comunities involved in the situation of cultural contact)." ;
                              rdfs:label "cultural contact aspect"@en .
 
 
@@ -142,7 +142,7 @@ cucoo:CulturalContactTrait rdf:type owl:Class ;
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalIdentity
 cucoo:CulturalIdentity rdf:type owl:Class ;
                        dc:description "Self-conscious association of a group or a person with a culturally constructed group identitiy that intersect with others in the identification of, and interaction, between groups. Refers to the elements that constitute a person's cultural identity."@en ;
-                       rdfs:comment "Examples: being a Roman, a member of the Hakka people or a hippie"@en ;
+                       rdfs:comment "Examples: being a Roman, a member of the Hakka people, a female or a hippie"@en ;
                        rdfs:label "cultural identity"@en .
 
 
