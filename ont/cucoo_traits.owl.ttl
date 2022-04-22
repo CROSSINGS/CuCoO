@@ -10,7 +10,6 @@
 @base <http://crossings.github.io/CuCoO/traits> .
 
 <http://crossings.github.io/CuCoO/traits> rdf:type owl:Ontology ;
-                                           owl:imports <http://crossings.github.io/CuCoO/core> ;
                                            terms:description "Traits of cultural contact that aid the instantiation of the CuCoO core module."@en ;
                                            terms:license <http://creativecommons.org/licenses/by-sa/4.0/> .
 
