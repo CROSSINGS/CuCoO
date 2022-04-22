@@ -1,0 +1,21 @@
+@prefix arco-ctx: <https://w3id.org/arco/ontology/context-description/> .
+@prefix crm: <http://erlangen-crm.org/current/> .
+@prefix cucoo: <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://crossings.github.io/CuCoO/align> a owl:Ontology ;
+	dc:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
+	dc:creator <http://orcid.org/0000-0002-9272-908X> ;
+dc:description "Alignments of the CuCoO framework with other ontologies."@en .
+
+cucoo:CulturalContact 
+                      rdfs:subClassOf crm:E92_Spacetime_Volume
+                      ; dc:description """Because it is not set in a fixed temporal region, it subsumes the general phenomenological framework of CIDOC-CRM."""@en
+.
+
+cucoo:CulturalContactContext rdfs:subclassOf arco-ctx:Circumstance .
+
+cucoo:PhysicalAppearance rdfs:subclassOf  crm:E26_Physical_Feature
+.

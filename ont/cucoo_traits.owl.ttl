@@ -1,5 +1,6 @@
 @prefix : <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
 @prefix crm: <http://erlangen-crm.org/current/> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -7,9 +8,39 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 
+<http://crossings.github.io/CuCoO/traits> a owl:Ontology ;
+owl:imports <http://crossings.github.io/CuCoO/core> ;
+	dc:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
+dc:description "Traits of cultural contact that aid the instantiation of the CuCoO core module."@en .
+
+###  http://erlangen-crm.org/current/E21_Person
+crm:E21_Person rdf:type owl:Class ;
+               rdfs:subClassOf :CulturalAgent .
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PhysicalAppearance
+:PhysicalAppearance rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Style
+:Style rdf:type owl:Class ;
+       rdfs:subClassOf :CulturalContactTrait .
+
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Text
+:Text rdf:type owl:Class ;
+      rdfs:subClassOf :CulturalContactTrait ;
+      rdfs:comment "Utterance or coherent set of written statements." .
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Iconography
+:Iconography rdf:type owl:Class ;
+                  rdfs:subClassOf :CulturalContactTrait .
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
+:ShowsPhysicalAppearance rdf:type owl:ObjectProperty ;
+                         rdfs:domain crm:E21_Person ;
+                         rdfs:range :PhysicalAppearance .
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/InConventus
 :InConventus rdf:type owl:ObjectProperty ;
@@ -166,7 +197,7 @@
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PhysicalAppearance
 :PhysicalAppearance rdf:type owl:Class ;
-                    rdfs:subClassOf :CulturalContactTrait ;
+                    rdfs:subClassOf :CulturalContactTrait  ;
                     rdfs:comment "Refers to all things that constitute one person’s appearance." .
 
 

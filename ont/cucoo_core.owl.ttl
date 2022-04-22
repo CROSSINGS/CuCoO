@@ -1,4 +1,4 @@
-@prefix : <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
+@prefix : <http://crossings.github.io/term/> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix crm: <http://erlangen-crm.org/current/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -6,15 +6,17 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cucoo: <http://www.semanticweb.org/paulagranadosgarcia/CuCoO/> .
 @base <http://crossings.github.io/CuCoO/core> .
 
 <http://crossings.github.io/CuCoO/core> rdf:type owl:Ontology ;
                                          dc:creator <http://orcid.org/0000-0001-8029-7286> ,
                                                     <http://orcid.org/0000-0002-9272-908X> ,
                                                     <http://orcid.org/0000-0003-2014-0855> ;
+                                         dc:description "This ontology defines the main concepts related to cross-cultural contact in history."@en ;
                                          dc:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
-                                         dc:title "CuCoO: The Cultural Contact Ontology - refactored core"@en ;
-                                         rdfs:comment "This ontology defines the main concepts related to cross-cultural contact in history."@en .
+                                         dc:title "CuCoO: The Cultural Contact Ontology - Core"@en ;
+                                         rdfs:comment "Built upon on CuCoO - the Cultural Contact Ontology, by Paula Granados Garcia, CC BY-SA 2.0."@en .
 
 #################################################################
 #    Annotation properties
@@ -22,6 +24,10 @@
 
 ###  http://purl.org/dc/terms/creator
 dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dc:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
@@ -36,162 +42,146 @@ dc:title rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ShowsPhysicalAppearance
-:ShowsPhysicalAppearance rdf:type owl:ObjectProperty ;
-                         rdfs:domain crm:E21_Person ;
-                         rdfs:range :PhysicalAppearance .
-
-
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasAspect
-:hasAspect rdf:type owl:ObjectProperty ;
-           rdfs:domain :CulturalAgent ;
-           rdfs:range :CulturalContactAspects ;
-           rdfs:comment "Relates a CulutralContactAgent (e.g. coin) with the CulutralContactAspect featured (e.g. Linguistic)." .
+cucoo:hasAspect rdf:type owl:ObjectProperty ;
+                rdfs:domain cucoo:CulturalAgent ;
+                rdfs:range cucoo:CulturalContactAspects ;
+                rdfs:comment "Relates a CulutralContactAgent (e.g. coin) with the CulutralContactAspect featured (e.g. Linguistic)." .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasContext
-:hasContext rdf:type owl:ObjectProperty ;
-            rdfs:domain :CulturalAgent ;
-            rdfs:range :CulturalContactContext ;
-            rdfs:comment "Relates a CulturalConceptAgent (e.g. sculpture) with the CulturalContact Context whose finding is related to (e.g. conquest)." .
+cucoo:hasContext rdf:type owl:ObjectProperty ;
+                 rdfs:domain cucoo:CulturalAgent ;
+                 rdfs:range cucoo:CulturalContactContext ;
+                 rdfs:comment "Relates a CulturalConceptAgent (e.g. sculpture) with the CulturalContact Context whose finding is related to (e.g. conquest)." .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasCulturalAssociation
-:hasCulturalAssociation rdf:type owl:ObjectProperty ;
-                        rdfs:domain :CulturalAgent ;
-                        rdfs:comment "Relates an object with a culutral Association (e.g. Sculpture has culutral association clothing)." .
+cucoo:hasCulturalAssociation rdf:type owl:ObjectProperty ;
+                             rdfs:domain cucoo:CulturalAgent ;
+                             rdfs:comment "Relates an object with a culutral Association (e.g. Sculpture has culutral association clothing)." .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasCulturalContact
-:hasCulturalContact rdf:type owl:ObjectProperty ;
-                    rdfs:domain :CulturalContact ;
-                    rdfs:range :CulturalAgent .
+cucoo:hasCulturalContact rdf:type owl:ObjectProperty ;
+                         rdfs:domain cucoo:CulturalContact ;
+                         rdfs:range cucoo:CulturalAgent .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasCulturalIdentity
-:hasCulturalIdentity rdf:type owl:ObjectProperty ;
-                     rdfs:domain :CulturalAgent ;
-                     rdfs:range :CulturalIdentity ;
-                     rdfs:comment "Relates a Cultural Trait with the cultural Identitiy it is associated with (e.g. Toga has cultural identitity Roman)." .
+cucoo:hasCulturalIdentity rdf:type owl:ObjectProperty ;
+                          rdfs:domain cucoo:CulturalAgent ;
+                          rdfs:range cucoo:CulturalIdentity ;
+                          rdfs:comment "Relates a Cultural Trait with the cultural Identitiy it is associated with (e.g. Toga has cultural identitity Roman)." .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/hasCulturalTrait
-:hasCulturalTrait rdf:type owl:ObjectProperty ;
-                  rdfs:domain :CulturalAgent ;
-                  rdfs:range :CulturalContactTrait .
+cucoo:hasCulturalTrait rdf:type owl:ObjectProperty ;
+                       rdfs:domain cucoo:CulturalAgent ;
+                       rdfs:range cucoo:CulturalContactTrait .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/isAssociatedWith
-:isAssociatedWith rdf:type owl:ObjectProperty ;
-                  rdfs:domain :CulturalAgent ,
-                              :CulturalContactTrait ;
-                  rdfs:range :CulturalIdentity ;
-                  rdfs:comment "Associates a CulturalContactTrait with a cultural identity." .
+cucoo:isAssociatedWith rdf:type owl:ObjectProperty ;
+                       rdfs:domain cucoo:CulturalAgent ,
+                                   cucoo:CulturalContactTrait ;
+                       rdfs:range cucoo:CulturalIdentity ;
+                       rdfs:comment "Associates a CulturalContactTrait with a cultural identity." .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://erlangen-crm.org/current/E21_Person
-crm:E21_Person rdf:type owl:Class ;
-               rdfs:subClassOf :CulturalAgent .
-
-
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Conquest
-:Conquest rdf:type owl:Class ;
-          rdfs:subClassOf :CulturalContactContext ;
-          rdfs:comment "The cultural contact situation happens during a process of colonial conquest (e.g. Roman colonisation of the Iberian Penisula)." .
+cucoo:Conquest rdf:type owl:Class ;
+               rdfs:subClassOf cucoo:CulturalContactContext ;
+               rdfs:comment "The cultural contact situation happens during a process of colonial conquest (e.g. Roman colonisation of the Iberian Penisula)." ;
+               rdfs:label "conquest"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalAgent
-:CulturalAgent rdf:type owl:Class ;
-               rdfs:comment "Refers to things and people that embody and enact cultural meaning." .
+cucoo:CulturalAgent rdf:type owl:Class ;
+                    rdfs:comment "Refers to things and people that embody and enact cultural meaning." ;
+                    rdfs:label "bearer of cultural meaning"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContact
-:CulturalContact rdf:type owl:Class ;
-                 rdfs:comment "Refers to the phenomenon of interaction amongst at least two communities with different cultural and ethnical backgrounds." .
+cucoo:CulturalContact rdf:type owl:Class ;
+                      dc:description "Refers to the phenomenon of interaction amongst at least two communities with different cultural and ethnical backgrounds."@en ;
+                      rdfs:label "cultural contact"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContactAspects
-:CulturalContactAspects rdf:type owl:Class ;
-                        rdfs:subClassOf :CulturalContactFeature ;
-                        rdfs:comment "" ,
-                                     "Character of the cultural contact situation (e.g. Economic, the evidence can proove the establishment of some economic relationship amongst the different comunities involved in the situation of cultural contact)." .
+cucoo:CulturalContactAspects rdf:type owl:Class ;
+                             rdfs:subClassOf cucoo:CulturalContactFeature ;
+                             rdfs:comment "Character of the cultural contact situation (e.g. Economic, the evidence can proove the establishment of some economic relationship amongst the different comunities involved in the situation of cultural contact)." ;
+                             rdfs:label "cultural contact aspect"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContactContext
-:CulturalContactContext rdf:type owl:Class ;
-                        rdfs:subClassOf :CulturalContactFeature ;
-                        rdfs:comment "Refers to the context in which the situation of cultural contact takes place (e.g. in a context of trade, the main objective behind the cultural contact is economic profit)." .
+cucoo:CulturalContactContext rdf:type owl:Class ;
+                             rdfs:subClassOf cucoo:CulturalContactFeature ;
+                             rdfs:comment "Refers to the context in which the situation of cultural contact takes place (e.g. in a context of trade, the main objective behind the cultural contact is economic profit)." ;
+                             rdfs:label "cultural contact context"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContactFeature
-:CulturalContactFeature rdf:type owl:Class ;
-                        rdfs:comment "Refers to any cultural contact feature that can be identified in the entities. For example, cultural contact traits or cultural contact aspects." .
+cucoo:CulturalContactFeature rdf:type owl:Class ;
+                             rdfs:comment "Refers to any cultural contact feature that can be identified in the entities. For example, cultural contact traits or cultural contact aspects." ;
+                             rdfs:label "cultural contact feature"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalContactTrait
-:CulturalContactTrait rdf:type owl:Class ;
-                      rdfs:subClassOf :CulturalContactFeature ;
-                      rdfs:comment "Characteristic of human action accquired and transmited by any kind of communication in a situation of cultural contact." .
+cucoo:CulturalContactTrait rdf:type owl:Class ;
+                           rdfs:subClassOf cucoo:CulturalContactFeature ;
+                           rdfs:comment "Characteristic of human action accquired and transmited by any kind of communication in a situation of cultural contact." ;
+                           rdfs:label "cultural contact trait"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/CulturalIdentity
-:CulturalIdentity rdf:type owl:Class ;
-                  rdfs:comment "Self-conscious association of a group or a person with a culturally constructed group identitiy that intersect with others in the identification of, and interaction, between groups.Refers to the elements that constitue a person cultural identity." .
+cucoo:CulturalIdentity rdf:type owl:Class ;
+                       dc:description "Self-conscious association of a group or a person with a culturally constructed group identitiy that intersect with others in the identification of, and interaction, between groups. Refers to the elements that constitute a person's cultural identity."@en ;
+                       rdfs:comment "Examples: being a Roman, a member of the Hakka people or a hippie"@en ;
+                       rdfs:label "cultural identity"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Iconographic
-:Iconographic rdf:type owl:Class ;
-              rdfs:subClassOf :CulturalContactAspects ;
-              rdfs:comment "Iconographic influence amongst the different cultural groups can be demonstrated in  the evidence (e.g. spread of iconographic patterns)." .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Iconography
-:Iconography rdf:type owl:Class ;
-             rdfs:subClassOf :CulturalContactTrait .
+cucoo:Iconographic rdf:type owl:Class ;
+                   rdfs:subClassOf cucoo:CulturalContactAspects ;
+                   rdfs:comment "Iconographic influence amongst the different cultural groups can be demonstrated in  the evidence (e.g. spread of iconographic patterns)." ;
+                   rdfs:label "iconographic aspect of cultural contact"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/ImpermeableCulturalContact
-:ImpermeableCulturalContact rdf:type owl:Class ;
-                            rdfs:subClassOf :CulturalContact ;
-                            owl:disjointWith :PermeableCulturalContact ;
-                            rdfs:comment "Situation of cultural contact (e.g. Roman foundation of a colonia) where there is no evidence for cultural influence (e.g. no appearance of indigenous influences in the material culture)." .
+cucoo:ImpermeableCulturalContact rdf:type owl:Class ;
+                                 rdfs:subClassOf cucoo:CulturalContact ;
+                                 owl:disjointWith cucoo:PermeableCulturalContact ;
+                                 dc:description "Situation of cultural contact where there is no evidence for cultural influence."@en ;
+                                 rdfs:comment "Example: the foundation of a colonia by the Romans did not cause the appearance of indigenous influences in material culture."@en ;
+                                 rdfs:label "impermeable cultural contact"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Linguistic
-:Linguistic rdf:type owl:Class ;
-            rdfs:subClassOf :CulturalContactAspects ;
-            rdfs:comment "Linguistic influence amongst the different cultural groups can be demonstrated in the evidence (e.g. bilingual inscriptions or use of foreign alphabets to record indigenous onomastica)." .
+cucoo:Linguistic rdf:type owl:Class ;
+                 rdfs:subClassOf cucoo:CulturalContactAspects ;
+                 rdfs:comment "Linguistic influence amongst the different cultural groups can be demonstrated in the evidence (e.g. bilingual inscriptions or use of foreign alphabets to record indigenous onomastica)." ;
+                 rdfs:label "linguistic aspect of cultural contact"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PermeableCulturalContact
-:PermeableCulturalContact rdf:type owl:Class ;
-                          rdfs:subClassOf :CulturalContact ;
-                          rdfs:comment "Situation of cultural contact (e.g. Roman conquest of the Iberian Peninsula) where there is evidence for cultural influence (e.g. appearance of Roman influences in the material culture)." .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/PhysicalAppearance
-:PhysicalAppearance rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Style
-:Style rdf:type owl:Class ;
-       rdfs:subClassOf :CulturalContactTrait .
-
-
-###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Text
-:Text rdf:type owl:Class ;
-      rdfs:subClassOf :CulturalContactTrait ;
-      rdfs:comment "Utterance or coherent set of written statements." .
+cucoo:PermeableCulturalContact rdf:type owl:Class ;
+                               rdfs:subClassOf cucoo:CulturalContact ;
+                               dc:description "Situation of cultural contact where there is evidence of cultural influence."@en ;
+                               rdfs:comment "Example: the Roman conquest of the Iberian Peninsula caused appearance of Roman influences in the local material culture." ;
+                               rdfs:label "permeable cultural contact"@en .
 
 
 ###  http://www.semanticweb.org/paulagranadosgarcia/CuCoO/Trade
-:Trade rdf:type owl:Class ;
-       rdfs:subClassOf :CulturalContactContext ;
-       rdfs:comment "The cultural contact situation happens during a process of trade (e.g. Phoenician and Greek settlements in the peninsula)." .
+cucoo:Trade rdf:type owl:Class ;
+            rdfs:subClassOf cucoo:CulturalContactContext ;
+            rdfs:comment "The cultural contact situation happens during a process of trade (e.g. Phoenician and Greek settlements in the peninsula)." ;
+            rdfs:label "trade"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
