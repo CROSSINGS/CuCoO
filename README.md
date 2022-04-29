@@ -8,10 +8,10 @@ This effort is supported by CROSSINGS (Computational Interoperability For Intang
 
 ## Ontologies
 
-* [Main](cucoo) (root)  
-    - [Core](core) ([doc](https://w3id.org/lode/https://crossings.github.io/CuCoO/core?owlapi=true))
-    - [Traits](traits) ([doc](https://w3id.org/lode/https://crossings.github.io/CuCoO/traits?owlapi=true))
-    - [Alignments](align) ([doc](https://w3id.org/lode/https://crossings.github.io/CuCoO/align?owlapi=true))
+* [Main](https://crossings.github.io/CuCoO/cucoo) (root)  
+    - [Core](https://crossings.github.io/CuCoO/core) ([doc](https://w3id.org/lode/https://crossings.github.io/CuCoO/core?owlapi=true))
+    - [Traits](https://crossings.github.io/CuCoO/traits) ([doc](https://w3id.org/lode/https://crossings.github.io/CuCoO/traits?owlapi=true))
+    - [Alignments](https://crossings.github.io/CuCoO/align) ([doc](https://w3id.org/lode/https://crossings.github.io/CuCoO/align?owlapi=true))
 
 ## Usage rights
 
