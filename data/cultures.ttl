@@ -1,0 +1,11 @@
+@prefix cucoo: <http://crossings.github.io/CuCoO/> .
+@prefix ma: <http://crossings.github.io/term/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+<http://data.unil.ch/identity/crossings/zhangzhou/qing> a cucoo:CulturalIdentity , cucoo:CulturalFrame
+  ; rdfs:label "People living in the Zhangzhou prefecture during the Qing Dynasty"@en
+  ; rdfs:comment "A utility entity to frame the group of people living in the Zhangzhou prefecture during the Qing Dynasty (not a recognized cultural identity)."@en
+  ; cucoo:hasCoordinates wd:Q8733 , wd:Q68814
+.
